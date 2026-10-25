@@ -1,0 +1,464 @@
+{
+ "data": {
+  "n": 10662,
+  "n_pos": 5331,
+  "n_neg": 5331,
+  "n_train": 8529,
+  "n_test": 2133,
+  "avg_words": 21.015475520540235,
+  "median_words": 20.0,
+  "max_words": 59,
+  "vocab_size": 21424
+ },
+ "chosen_features": "Lowercase unigrams",
+ "E2_preprocessing": {
+  "Lowercase unigrams": {
+   "cv_acc_mean": 0.7612874347223703,
+   "cv_acc_std": 0.012537600918486437,
+   "best_C": 4
+  },
+  "+ Stopword removal": {
+   "cv_acc_mean": 0.7478029930588264,
+   "cv_acc_std": 0.011679670475889505,
+   "best_C": 4
+  },
+  "Unigrams + bigrams": {
+   "cv_acc_mean": 0.7574176358754509,
+   "cv_acc_std": 0.011877934315196424,
+   "best_C": 30
+  },
+  "Uni+bi + negation marking": {
+   "cv_acc_mean": 0.7604665266284598,
+   "cv_acc_std": 0.012546866931576476,
+   "best_C": 30
+  }
+ },
+ "vader_neutral_fraction": 0.17909048288795124,
+ "E1_models": {
+  "VADER (lexicon, rule-based)": {
+   "accuracy": 0.6422878574777309,
+   "precision": 0.628281117696867,
+   "recall": 0.6960600375234521,
+   "f1": 0.660436137071651,
+   "macro_f1": 0.6412631403535571,
+   "roc_auc": 0.689902252637983,
+   "train_s": 0.0,
+   "infer_ms_per_1k": 167.30653492737068,
+   "confusion": [
+    [
+     628,
+     439
+    ],
+    [
+     324,
+     742
+    ]
+   ]
+  },
+  "Multinomial Naive Bayes (BoW)": {
+   "accuracy": 0.7740271917487107,
+   "precision": 0.7780952380952381,
+   "recall": 0.7664165103189493,
+   "f1": 0.7722117202268431,
+   "macro_f1": 0.7740128368576076,
+   "roc_auc": 0.845592928570047,
+   "train_s": 2.0534409639999467,
+   "infer_ms_per_1k": 15.663860759366456,
+   "confusion": [
+    [
+     834,
+     233
+    ],
+    [
+     249,
+     817
+    ]
+   ],
+   "best_params": {
+    "c__alpha": 1.0
+   },
+   "cv_acc": 0.7675011431105672
+  },
+  "Logistic Regression (TF-IDF)": {
+   "accuracy": 0.7749648382559775,
+   "precision": 0.7658802177858439,
+   "recall": 0.7917448405253283,
+   "f1": 0.7785977859778598,
+   "macro_f1": 0.7749042314064705,
+   "roc_auc": 0.8578671768261912,
+   "train_s": 2.488571528999728,
+   "infer_ms_per_1k": 24.119989685846324,
+   "confusion": [
+    [
+     809,
+     258
+    ],
+    [
+     222,
+     844
+    ]
+   ],
+   "best_params": {
+    "c__C": 4
+   },
+   "cv_acc": 0.7612874347223703
+  },
+  "Linear SVM (TF-IDF)": {
+   "accuracy": 0.7791842475386779,
+   "precision": 0.7721866422689845,
+   "recall": 0.7917448405253283,
+   "f1": 0.7818434460398332,
+   "macro_f1": 0.7791514335087633,
+   "roc_auc": 0.8573299971338694,
+   "train_s": 2.552238566000142,
+   "infer_ms_per_1k": 20.630208626182583,
+   "confusion": [
+    [
+     818,
+     249
+    ],
+    [
+     222,
+     844
+    ]
+   ],
+   "best_params": {
+    "c__C": 0.3
+   },
+   "cv_acc": 0.7616392721221977
+  },
+  "Static word vectors + LR": {
+   "accuracy": 0.6957337083919363,
+   "precision": 0.7022308438409312,
+   "recall": 0.6791744840525328,
+   "f1": 0.6905102527420124,
+   "macro_f1": 0.6956470120326014,
+   "roc_auc": 0.7717733611623478,
+   "train_s": 8.361711200000173,
+   "infer_ms_per_1k": 919.1514609829321,
+   "confusion": [
+    [
+     760,
+     307
+    ],
+    [
+     342,
+     724
+    ]
+   ],
+   "best_params": {
+    "c__C": 0.01
+   },
+   "cv_acc": 0.6960969220243886
+  },
+  "RoBERTa embeddings (frozen) + LR": {
+   "accuracy": 0.7529301453352086,
+   "precision": 0.7665677546983185,
+   "recall": 0.7270168855534709,
+   "f1": 0.746268656716418,
+   "macro_f1": 0.7527597280841112,
+   "roc_auc": 0.8348572473541043,
+   "train_s": 8.348579615999824,
+   "infer_ms_per_1k": 49833.121362971295,
+   "confusion": [
+    [
+     831,
+     236
+    ],
+    [
+     291,
+     775
+    ]
+   ],
+   "best_params": {
+    "c__C": 0.03
+   },
+   "cv_acc": 0.7469814661381429
+  },
+  "Ensemble (TF-IDF LR + RoBERTa LR)": {
+   "accuracy": 0.8082512892639475,
+   "precision": 0.8137535816618912,
+   "recall": 0.799249530956848,
+   "f1": 0.8064363464268812,
+   "macro_f1": 0.8082344295998781,
+   "roc_auc": 0.8828165799500975,
+   "confusion": [
+    [
+     872,
+     195
+    ],
+    [
+     214,
+     852
+    ]
+   ]
+  }
+ },
+ "E3_learning_curve": {
+  "0.05": {
+   "n": 426,
+   "tfidf_lr": 0.6324425691514299,
+   "roberta_lr": 0.6558837318330989
+  },
+  "0.1": {
+   "n": 852,
+   "tfidf_lr": 0.6521331458040319,
+   "roberta_lr": 0.6854195968120019
+  },
+  "0.25": {
+   "n": 2132,
+   "tfidf_lr": 0.7116736990154712,
+   "roberta_lr": 0.7327707454289732
+  },
+  "0.5": {
+   "n": 4264,
+   "tfidf_lr": 0.7473042662916081,
+   "roberta_lr": 0.7482419127988749
+  },
+  "1.0": {
+   "n": 8529,
+   "tfidf_lr": 0.7749648382559775,
+   "roberta_lr": 0.7529301453352086
+  }
+ },
+ "E4_mcnemar": {
+  "a": "Linear SVM (TF-IDF)",
+  "b": "Logistic Regression (TF-IDF)",
+  "a_only_correct": 26,
+  "b_only_correct": 17,
+  "p_value": 0.2220528201560228
+ },
+ "E5_slices": {
+  "Contains negation": {
+   "n": 524,
+   "VADER (lexicon, rule-based)": 0.5858778625954199,
+   "Multinomial Naive Bayes (BoW)": 0.7118320610687023,
+   "Logistic Regression (TF-IDF)": 0.6927480916030534,
+   "Linear SVM (TF-IDF)": 0.6984732824427481,
+   "Static word vectors + LR": 0.6145038167938931,
+   "RoBERTa embeddings (frozen) + LR": 0.6812977099236641,
+   "Ensemble (TF-IDF LR + RoBERTa LR)": 0.7213740458015268
+  },
+  "Contrast ('but', 'yet', 'though')": {
+   "n": 371,
+   "VADER (lexicon, rule-based)": 0.5929919137466307,
+   "Multinomial Naive Bayes (BoW)": 0.6873315363881402,
+   "Logistic Regression (TF-IDF)": 0.7008086253369272,
+   "Linear SVM (TF-IDF)": 0.706199460916442,
+   "Static word vectors + LR": 0.5876010781671159,
+   "RoBERTa embeddings (frozen) + LR": 0.6388140161725068,
+   "Ensemble (TF-IDF LR + RoBERTa LR)": 0.706199460916442
+  },
+  "Short (\u2264 10 words)": {
+   "n": 312,
+   "VADER (lexicon, rule-based)": 0.717948717948718,
+   "Multinomial Naive Bayes (BoW)": 0.8173076923076923,
+   "Logistic Regression (TF-IDF)": 0.8205128205128205,
+   "Linear SVM (TF-IDF)": 0.8301282051282052,
+   "Static word vectors + LR": 0.6987179487179487,
+   "RoBERTa embeddings (frozen) + LR": 0.8141025641025641,
+   "Ensemble (TF-IDF LR + RoBERTa LR)": 0.8589743589743589
+  },
+  "Long (\u2265 30 words)": {
+   "n": 398,
+   "VADER (lexicon, rule-based)": 0.5753768844221105,
+   "Multinomial Naive Bayes (BoW)": 0.7412060301507538,
+   "Logistic Regression (TF-IDF)": 0.7512562814070352,
+   "Linear SVM (TF-IDF)": 0.7512562814070352,
+   "Static word vectors + LR": 0.6683417085427136,
+   "RoBERTa embeddings (frozen) + LR": 0.6909547738693468,
+   "Ensemble (TF-IDF LR + RoBERTa LR)": 0.7412060301507538
+  },
+  "Intensifier ('very', 'so', 'too')": {
+   "n": 254,
+   "VADER (lexicon, rule-based)": 0.6023622047244095,
+   "Multinomial Naive Bayes (BoW)": 0.7677165354330708,
+   "Logistic Regression (TF-IDF)": 0.8188976377952756,
+   "Linear SVM (TF-IDF)": 0.8188976377952756,
+   "Static word vectors + LR": 0.6692913385826772,
+   "RoBERTa embeddings (frozen) + LR": 0.7598425196850394,
+   "Ensemble (TF-IDF LR + RoBERTa LR)": 0.8346456692913385
+  }
+ },
+ "test_cases": [
+  {
+   "text": "a masterpiece of quiet , heartbreaking performances .",
+   "expected": 1,
+   "tfidf_lr_p_pos": 0.9856436131060525,
+   "roberta_lr_p_pos": 0.9963401556015015,
+   "vader_compound": 0.2732,
+   "neg_marked": "a masterpiece of quiet , heartbreaking performances ."
+  },
+  {
+   "text": "the plot is predictable and the dialogue is painfully flat .",
+   "expected": 0,
+   "tfidf_lr_p_pos": 0.03679430705148309,
+   "roberta_lr_p_pos": 0.17227816581726074,
+   "vader_compound": -0.5267,
+   "neg_marked": "the plot is predictable and the dialogue is painfully flat ."
+  },
+  {
+   "text": "not bad at all -- i actually enjoyed it .",
+   "expected": 1,
+   "tfidf_lr_p_pos": 0.14231623947580258,
+   "roberta_lr_p_pos": 0.19889596104621887,
+   "vader_compound": 0.7311,
+   "neg_marked": "not NOT_bad NOT_at NOT_all NOT_-- NOT_i NOT_actually NOT_enjoyed NOT_it ."
+  },
+  {
+   "text": "it is not a good film .",
+   "expected": 0,
+   "tfidf_lr_p_pos": 0.8889835479682903,
+   "roberta_lr_p_pos": 0.37878236174583435,
+   "vader_compound": -0.3412,
+   "neg_marked": "it is not NOT_a NOT_good NOT_film ."
+  },
+  {
+   "text": "the visuals are stunning , but the story never comes alive .",
+   "expected": 0,
+   "tfidf_lr_p_pos": 0.5444564204836047,
+   "roberta_lr_p_pos": 0.3727935552597046,
+   "vader_compound": -0.2444,
+   "neg_marked": "the visuals are stunning , but the story never NOT_comes NOT_alive ."
+  },
+  {
+   "text": "i wanted to like this movie , but i could n't .",
+   "expected": 0,
+   "tfidf_lr_p_pos": 0.09124012865420908,
+   "roberta_lr_p_pos": 0.1873447746038437,
+   "vader_compound": 0.1901,
+   "neg_marked": "i wanted to like this movie , but i could n't ."
+  },
+  {
+   "text": "oh great , another two hours of my life i will never get back .",
+   "expected": 0,
+   "tfidf_lr_p_pos": 0.4462427805383327,
+   "roberta_lr_p_pos": 0.3566925823688507,
+   "vader_compound": 0.6249,
+   "neg_marked": "oh great , another two hours of my life i will never NOT_get NOT_back ."
+  },
+  {
+   "text": "the cast is charming and the script is sharp and funny .",
+   "expected": 1,
+   "tfidf_lr_p_pos": 0.9681256905494403,
+   "roberta_lr_p_pos": 0.6703555583953857,
+   "vader_compound": 0.7717,
+   "neg_marked": "the cast is charming and the script is sharp and funny ."
+  }
+ ],
+ "errors": [
+  {
+   "text": "the result is more depressing than liberating , but it's never boring .",
+   "gold": 1,
+   "p_pos": 0.024670197932985076
+  },
+  {
+   "text": "halloween : resurrection isn't exactly quality cinema , but it isn't nearly as terrible as it cold have been .",
+   "gold": 1,
+   "p_pos": 0.034761215315030555
+  },
+  {
+   "text": "just another fish-out-of-water story that barely stays afloat .",
+   "gold": 1,
+   "p_pos": 0.04688824680002498
+  },
+  {
+   "text": "the modern remake of dumas's story is long on narrative and ( too ) short on action .",
+   "gold": 1,
+   "p_pos": 0.07295847814022656
+  },
+  {
+   "text": "a different movie -- sometimes tedious -- by a director many viewers would like to skip but film buffs should get to know .",
+   "gold": 1,
+   "p_pos": 0.07357891542528039
+  },
+  {
+   "text": "a solid film . . . but more conscientious than it is truly stirring .",
+   "gold": 0,
+   "p_pos": 0.9240716323179954
+  },
+  {
+   "text": "you see robert de niro singing - and dancing to - west side story show tunes . choose your reaction : a . ) that sure is funny ! b . ) that sure is pathetic !",
+   "gold": 0,
+   "p_pos": 0.9166462938687808
+  },
+  {
+   "text": "as unseemly as its title suggests .",
+   "gold": 1,
+   "p_pos": 0.09534731170245739
+  },
+  {
+   "text": "one of those staggeringly well-produced , joylessly extravagant pictures that keep whooshing you from one visual marvel to the next , hastily , emptily .",
+   "gold": 0,
+   "p_pos": 0.9007426240988987
+  },
+  {
+   "text": "if you're down for a silly hack-and-slash flick , you can do no wrong with jason x .",
+   "gold": 1,
+   "p_pos": 0.1014877796290998
+  },
+  {
+   "text": "it remains to be seen whether statham can move beyond the crime-land action genre , but then again , who says he has to ?",
+   "gold": 1,
+   "p_pos": 0.10717505303857668
+  },
+  {
+   "text": "it never fails to engage us .",
+   "gold": 1,
+   "p_pos": 0.11032595981282005
+  }
+ ],
+ "top_pos": [
+  "unexpected",
+  "solid",
+  "engrossing",
+  "and",
+  "enjoyable",
+  "funny",
+  "entertaining",
+  "still",
+  "wonderful",
+  "works",
+  "culture",
+  "provides",
+  "powerful",
+  "best",
+  "our"
+ ],
+ "top_neg": [
+  "too",
+  "dull",
+  "boring",
+  "bad",
+  "worst",
+  "fails",
+  "lack",
+  "mediocre",
+  "thin",
+  "tedious",
+  "stupid",
+  "generic",
+  "neither",
+  "jokes",
+  "suffers"
+ ],
+ "n_features": 19023,
+ "neg_features_in_top200": 0,
+ "E6_negation_posthoc": {
+  "C": 30,
+  "accuracy": 0.7951242381622129,
+  "f1": 0.8001828989483311,
+  "roc_auc": 0.8716439456947378,
+  "negation_slice_acc": 0.7423664122137404,
+  "test_cases": {
+   "a masterpiece of quiet , heartbreaking performances .": 0.9964937129611449,
+   "the plot is predictable and the dialogue is painfully flat .": 0.0051693798165960755,
+   "not bad at all -- i actually enjoyed it .": 0.11498248862189327,
+   "it is not a good film .": 0.4485532020991172,
+   "the visuals are stunning , but the story never comes alive .": 0.08242401148229021,
+   "i wanted to like this movie , but i could n't .": 0.08115029440707254,
+   "oh great , another two hours of my life i will never get back .": 0.3662926455869351,
+   "the cast is charming and the script is sharp and funny .": 0.9948815492772276
+  }
+ }
+}
